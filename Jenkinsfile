@@ -10,10 +10,10 @@ pipeline {
         stage('Build and Push Images') {
             steps {
                 script {
-                    sh 'docker build -t tusharsaini-del/react-app1 .'
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'ay_pass', usernameVariable: 'ay_user')]) {
+                    sh 'docker build -t tushasaini/react-app1 .'
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'ay_pass', usernameVariable: 'ay_user')]) {
                         sh 'docker login -u $ay_user -p $ay_pass'
-                        sh 'docker push tusharsaini-del/react-app1 '
+                        sh 'docker push tushasaini/react-app1 '
                     }
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker rm -f  react-app1'
-                    sh 'docker run -d --name my-react-app2 -p 1155:80 tusharsaini-del/react-app1'
+                    sh 'docker run -d --name my-react-app2 -p 1155:80 tushasaini/react-app1'
                 }
             }
         }
