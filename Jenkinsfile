@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', poll: false, url: 'https://github.com/tusharsaini-del/TerminalLinux.git'
+                git branch: 'main', poll: false, url: 'https://github.com/tusharsaini-del/TerminalLinux'
             }
         }
 
